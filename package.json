@@ -1,0 +1,29 @@
+{
+  "name" : "dom-additions",
+  "description" : "Methods which extend the DOM API.",
+  "version" : "0.1.0", 
+  "homepage" : "http://github.com/dandean/dom-additions",
+  "author" : "Dan Dean <me@dandean.com> (http://dandean.com)",
+  "contributors" : [],
+  "repository" :
+  {
+    "type" : "git",
+    "url" : "http://github.com/dandean/dom-additions.git"
+  },
+  "bugs" : {
+    "mail" : "me@dandean.com",
+    "url" : "http://github.com/dandean/dom-additions/issues"
+  },
+  "main" : "index",
+  "scripts": {
+    "test": "make test"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "engines" : { "node" : ">=0.2.0" },
+  "licenses" : [{
+    "type" : "MIT",
+    "url" : "http://github.com/dandean/dom-additions/raw/master/LICENSE"
+  }]
+}

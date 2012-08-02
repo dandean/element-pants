@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mocha Tests</title>
+  <link rel="stylesheet" href="../../node_modules/mocha/mocha.css" />
+  <script src="../../node_modules/mocha/mocha.js"></script>
+  <script>mocha.setup('bdd')</script>
+  <script src="./lib/util.js"></script>
+  <script src="./lib/assert.js"></script>
+  <script src="../../index.js"></script>
+  <script src="../additions.test.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      mocha.run()
+    });
+  </script>
+</head>
+<body>
+  <div id="mocha"></div>
+</body>
+</html>
