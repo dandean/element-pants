@@ -1,18 +1,18 @@
 {
-  "name" : "dom-additions",
-  "description" : "Methods which extend the DOM API.",
+  "name" : "element-additions",
+  "description" : "Methods which extend the DOM Element API.",
   "version" : "0.1.0", 
-  "homepage" : "http://github.com/dandean/dom-additions",
+  "homepage" : "http://github.com/dandean/element-additions",
   "author" : "Dan Dean <me@dandean.com> (http://dandean.com)",
   "contributors" : [],
   "repository" :
   {
     "type" : "git",
-    "url" : "http://github.com/dandean/dom-additions.git"
+    "url" : "http://github.com/dandean/element-additions.git"
   },
   "bugs" : {
     "mail" : "me@dandean.com",
-    "url" : "http://github.com/dandean/dom-additions/issues"
+    "url" : "http://github.com/dandean/element-additions/issues"
   },
   "main" : "index",
   "scripts": {
@@ -21,9 +21,8 @@
   "devDependencies": {
     "mocha": "*"
   },
-  "engines" : { "node" : ">=0.2.0" },
   "licenses" : [{
     "type" : "MIT",
-    "url" : "http://github.com/dandean/dom-additions/raw/master/LICENSE"
+    "url" : "http://github.com/dandean/element-additions/raw/master/LICENSE"
   }]
 }
