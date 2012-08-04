@@ -228,7 +228,7 @@
     },
 
     /**
-     * Element#create(tag, [attributes], [content]) -> Element
+     * Document#create(tag, [attributes], [content]) -> Element
      * - tag (String): Element tag name.
      * - attributes (Object): Optional hash of Element attributes
      * - content (String|Node): Optional content to insert into the new element.
@@ -284,7 +284,15 @@
       }
 
       Object.keys(Extensions).forEach(function(method) {
-        if (!Element.prototype.hasOwnProperty(method)) {
+        if (method == 'create') {
+          if (!Document.prototype.hasOwnProperty(method)) {
+            Object.defineProperty(Document.prototype, method, {
+              value: Extensions[method],
+              enumerable: false, configurable: true, writable: true
+            });
+            if (debug && console) console.log("Installed Document#" + method + "()");
+          }
+        } else if (!Element.prototype.hasOwnProperty(method)) {
           Object.defineProperty(Element.prototype, method, {
             value: Extensions[method],
             enumerable: false, configurable: true, writable: true
