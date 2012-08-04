@@ -51,7 +51,7 @@
       style = style == 'float' ? 'cssFloat' : camelize(style);
       var value = this.style[style];
       if (!value || value == 'auto') {
-        var css = window.getComputedStyle(this, null);
+        var css = this.ownerDocument.defaultView.getComputedStyle(this, null);
         value = css ? css[style] : null;
       }
       if (style == 'opacity') return value ? parseFloat(value) : 1.0;
@@ -93,13 +93,14 @@
     **/
     hide: function() {
       if (!styleSheetElement) {
+        var document = this.ownerDocument;
         styleSheetElement = document.createElement('style');
         styleSheetElement.setAttribute('type', 'text/css');
         var rule = '[data-dom-hidden] { display:none !important; }';
         if (styleSheetElement.styleSheet) {
           styleSheetElement.styleSheet.cssText = rule;
         } else styleSheetElement.textContent = rule;
-        (document.head || document.getElementsByTagName('head')[0])
+        (document.head || document.getElementsByTagName('head')[0] || document.body)
           .appendChild(styleSheetElement)
       }
       this.setAttribute('data-dom-hidden', 'true');
