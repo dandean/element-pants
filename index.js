@@ -30,14 +30,20 @@
     },
 
     addClass: function(className) {
-      if (!Extensions.hasClass.call(this, className))
-        this.className += (this.className ? ' ' : '') + className;
+      var element = this;
+      className.split(/\s+/g).forEach(function(name) {
+        if (!Extensions.hasClass.call(element, name))
+          element.className += (element.className ? ' ' : '') + name;
+      });
       return this;
     },
 
     removeClass: function(className) {
-      this.className = this.className.replace(
-        new RegExp("(^|\\s+)" + className + "(\\s+|$)"), ' ').trim();
+      var result = this.className;
+      className.split(/\s+/g).forEach(function(name) {
+        result = result.replace(new RegExp("(^|\\s+)" + name + "(\\s+|$)"), ' ');
+      });
+      this.className = result.trim();
       return this;
     },
 
