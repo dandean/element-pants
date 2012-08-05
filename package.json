@@ -1,18 +1,18 @@
 {
-  "name" : "element-additions",
-  "description" : "Methods which extend the DOM Element API.",
+  "name" : "element-pants",
+  "description" : "Some pants for your elements.",
   "version" : "0.1.0", 
-  "homepage" : "http://github.com/dandean/element-additions",
+  "homepage" : "http://github.com/dandean/element-pants",
   "author" : "Dan Dean <me@dandean.com> (http://dandean.com)",
   "contributors" : [],
   "repository" :
   {
     "type" : "git",
-    "url" : "http://github.com/dandean/element-additions.git"
+    "url" : "http://github.com/dandean/element-pants.git"
   },
   "bugs" : {
     "mail" : "me@dandean.com",
-    "url" : "http://github.com/dandean/element-additions/issues"
+    "url" : "http://github.com/dandean/element-pants/issues"
   },
   "main" : "index",
   "scripts": {
@@ -23,6 +23,6 @@
   },
   "licenses" : [{
     "type" : "MIT",
-    "url" : "http://github.com/dandean/element-additions/raw/master/LICENSE"
+    "url" : "http://github.com/dandean/element-pants/raw/master/LICENSE"
   }]
 }

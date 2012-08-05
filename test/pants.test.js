@@ -1,6 +1,6 @@
 if (typeof window === 'undefined') {
   var assert = require("assert");
-  var additions = require("../index");
+  var pants = require("../index");
 }
 
 describe('DOM Additions', function() {
