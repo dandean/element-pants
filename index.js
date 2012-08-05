@@ -23,12 +23,24 @@
   var styleSheetElement;
   var Extensions = {
 
+    /**
+     * Element#hasClass(className) -> Element
+     * - className (String): The CSS class name to check for.
+     *
+     * Checks is the element has the specified class name.
+    **/
     hasClass: function(className) {
       var value = this.className;
       return (value.length > 0
         && (value == className || new RegExp("(^|\\s)" + className + "(\\s|$)").test(value)));
     },
 
+    /**
+     * Element#addClass(className) -> Element
+     * - className (String): The CSS class name to add to the element
+     *
+     * Adds `className` to the element.
+    **/
     addClass: function(className) {
       var element = this;
       className.split(/\s+/g).forEach(function(name) {
