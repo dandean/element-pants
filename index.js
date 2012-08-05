@@ -50,6 +50,12 @@
       return this;
     },
 
+    /**
+     * Element#removeClass(className) -> Element
+     * - className (String): The CSS class name to remove from the element
+     *
+     * Removes `className` from the element.
+    **/
     removeClass: function(className) {
       var result = this.className;
       className.split(/\s+/g).forEach(function(name) {
@@ -59,12 +65,24 @@
       return this;
     },
 
+    /**
+     * Element#toggleClass(className) -> Element
+     * - className (String): The CSS class name to toggle on the element
+     *
+     * Toggles `className` on the element.
+    **/
     toggleClass: function(className) {
       return Extensions[
         Extensions.hasClass.call(this, className) ? 'removeClass' : 'addClass'
       ].call(this, className);
     },
 
+    /**
+     * Element#getStyle(style) -> String
+     * - style (String): The name of the style to get.
+     *
+     * Gets `style` from the element's computed style.
+    **/
     getStyle: function(style) {
       style = style == 'float' ? 'cssFloat' : camelize(style);
       var value = this.style[style];
@@ -76,13 +94,21 @@
       return value == 'auto' ? null : value;
     },
 
+    /**
+     * Element#setStyle(style) -> Element
+     * - style (String): The name of the style to set.
+     *
+     * Sets `style` on the element's style attribute.
+    **/
     setStyle: function(name, value) {
       var styles;
 
       if (arguments.length == 2) {
+        // Two args, name and value given.
         styles = name + ':' + value + ';';
 
       } else if (arguments.length == 1 && isString(name)) {
+        // One arg, and it's a string. Must be string of CSS.
         styles = name;
       }
 
@@ -93,6 +119,8 @@
         return this;
       }
 
+      // Single argument which is not a string: must be an object of
+      // key/value pairs.
       styles = name;
       for (var property in styles)
         style[
