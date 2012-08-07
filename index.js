@@ -1,6 +1,9 @@
 ;(function() {
   'use strict';
 
+  var slice = Array.prototype.slice;
+  var styleSheetElement;
+
   function camelize(string) {
     return string.replace(/-+(.)?/g, function(match, chr) {
       return chr ? chr.toUpperCase() : '';
@@ -19,8 +22,20 @@
     return void(0) === value;
   }
 
-  var slice = Array.prototype.slice;
-  var styleSheetElement;
+  var proto = (typeof Element != 'undefined') ? Element.prototype : {} ;
+
+  // Check for native `matchesSelector` method:
+  var matchesSelector = proto.matchesSelector || proto.webkitMatchesSelector
+    || proto.mozMatchesSelector || proto.msMatchesSelector || proto.oMatchesSelector;
+
+  if (!matchesSelector) {
+    // No native `matchesSelector` method; create userland alternative:
+    matchesSelector = function(selector) {
+      var matches = this.parentNode.querySelectorAll(selector);
+      return slice.call(matches).indexOf(this) > -1;
+    };
+  }
+
   var Extensions = {
 
     /**
@@ -217,8 +232,7 @@
           if (selector) {
             var current = event.target;
             while(current !== scope && match == null) {
-              var matches = current.parentNode.findAll(selector);
-              if (slice.call(matches).indexOf(current) > -1) {
+              if (matchesSelector.call(current, selector)) {
                 match = current;
               } else {
                 current = current.parentNode;
