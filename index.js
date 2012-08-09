@@ -265,12 +265,11 @@
     **/
     off: function(eventName, selector, handler) {
       if (!this.__registry__) return this;
-
       if (typeof selector == 'undefined' && typeof handler == 'undefined') {
         this.__registry__.forEach(function(group) {
           this.removeEventListener(group[0], group[3], false);
-          this.__registry__.length = 0;
         }.bind(this));
+        this.__registry__.length = 0;
         return this;
       }
 
