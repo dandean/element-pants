@@ -1,9 +1,6 @@
 REPORTER = dot
 
 test:
-	./node_modules/.bin/mocha
-
-test:
 	./node_modules/.bin/mocha \
 	  && open ./test/html/requirejs.html \
 	  && open ./test/html/script.html

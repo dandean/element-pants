@@ -3,8 +3,7 @@ if (typeof window === 'undefined') {
   var pants = require("../index");
 }
 
-describe('DOM Additions', function() {
-
+describe('Element Pants', function() {
   // Currently untested in virtualized DOM environments...
   if (typeof window === 'undefined') return;
 

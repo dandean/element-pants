@@ -4,16 +4,17 @@
   <meta charset="utf-8">
   <title>Mocha Tests</title>
   <link rel="stylesheet" href="../../node_modules/mocha/mocha.css" />
-
   <script src="../../node_modules/mocha/mocha.js"></script>
-  <script>mocha.setup('bdd')</script>
-
+  <script>
+    mocha.setup({
+      ui: 'bdd',
+      globals: ['console']
+    });
+  </script>
   <script src="./lib/util.js"></script>
   <script src="./lib/assert.js"></script>
   <script src="./lib/require.js"></script>
-
   <script src="../pants.test.js"></script>
-
   <script type="text/javascript">
     require(["../../index"], function(pants) {
       window.DOM = pants;
