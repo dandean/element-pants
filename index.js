@@ -339,7 +339,8 @@
     **/
     install: function(debug) {
       if (typeof Element == "undefined") {
-        if (debug && console) console.log('DOM Additions could not be installed -- no Element object host.');
+        if (debug && console)
+          console.log('DOM Additions could not be installed -- no Element object host.');
         return;
       }
 
