@@ -375,7 +375,8 @@
         // Extend NodeList with common Array methods. Only installed if present
         // on Array.prototype so make sure to extend that first if you want array
         // extensions to make it onto NodeList.
-        ['filter', 'forEach', 'map', 'invoke'].forEach(function(method) {
+        ['every', 'filter', 'forEach', 'map', 'slice', 'some', 'splice', 'invoke']
+        .forEach(function(method) {
           if (Array.prototype[method] && !NodeList.prototype.hasOwnProperty(method)) {
             Object.defineProperty(NodeList.prototype, method, {
               value: Array.prototype[method],
