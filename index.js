@@ -369,6 +369,20 @@
           if (debug && console) console.log("Installed Element#" + method + "()");
         }
       });
+
+      if (typeof NodeList != 'undefined') {
+        // Extend NodeList with common Array methods. Only installed if present
+        // on Array.prototype so make sure to extend that first if you want array
+        // extensions to make it onto NodeList.
+        ['filter', 'forEach', 'map', 'invoke'].forEach(function(method) {
+          if (Array.prototype[method] && !NodeList.prototype.hasOwnProperty(method)) {
+            Object.defineProperty(NodeList.prototype, method, {
+              value: Array.prototype[method],
+              enumerable: false, configurable: true, writable: true
+            });
+          }
+        });
+      }
     }
   };
 
