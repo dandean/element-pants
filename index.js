@@ -344,15 +344,24 @@
       }
 
       Object.keys(Extensions).forEach(function(method) {
-        if (method == 'create') {
-          if (!Document.prototype.hasOwnProperty(method)) {
-            Object.defineProperty(Document.prototype, method, {
-              value: Extensions[method],
-              enumerable: false, configurable: true, writable: true
-            });
-            if (debug && console) console.log("Installed Document#" + method + "()");
-          }
-        } else if (!Element.prototype.hasOwnProperty(method)) {
+        if (method.match(/^on|off$/) && !Window.prototype.hasOwnProperty(method)) {
+          Object.defineProperty(Window.prototype, method, {
+            value: Extensions[method],
+            enumerable: false, configurable: true, writable: true
+          });
+          if (debug && console) console.log("Installed Window#" + method + "()");
+        }
+
+        if (method.match(/^create|find|findAll|on|off$/) && !Document.prototype.hasOwnProperty(method)) {
+          Object.defineProperty(Document.prototype, method, {
+            value: Extensions[method],
+            enumerable: false, configurable: true, writable: true
+          });
+          if (debug && console) console.log("Installed Document#" + method + "()");
+          if (method === 'create') return; // Keep from adding `create` to Element.prototype.
+        }
+
+        if (!Element.prototype.hasOwnProperty(method)) {
           Object.defineProperty(Element.prototype, method, {
             value: Extensions[method],
             enumerable: false, configurable: true, writable: true
