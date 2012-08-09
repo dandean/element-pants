@@ -22,13 +22,13 @@ describe('Element Pants', function() {
 
   it('should allow setting styles in various argument formats', function() {
     element.setStyle('float', 'left');
-    assert.equal('left', element.style.float);
+    assert.equal('left', element.style.float || element.style.cssFloat);
 
     element.setStyle('float:right;');
-    assert.equal('right', element.style.float);
+    assert.equal('right', element.style.float || element.style.cssFloat);
 
     element.setStyle({ float: 'none' });
-    assert.equal('none', element.style.float);
+    assert.equal('none', element.style.float || element.style.cssFloat);
   });
 
   it('should be able to show and hide an element', function() {
