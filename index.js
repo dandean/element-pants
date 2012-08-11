@@ -2,7 +2,6 @@
   'use strict';
 
   var slice = Array.prototype.slice;
-  var styleSheetElement;
 
   function camelize(string) {
     return string.replace(/-+(.)?/g, function(match, chr) {
@@ -153,18 +152,7 @@
      * Hides the element.
     **/
     hide: function() {
-      if (!styleSheetElement) {
-        var document = this.ownerDocument;
-        styleSheetElement = document.createElement('style');
-        styleSheetElement.setAttribute('type', 'text/css');
-        var rule = '[data-dom-hidden] { display:none !important; }';
-        if (styleSheetElement.styleSheet) {
-          styleSheetElement.styleSheet.cssText = rule;
-        } else styleSheetElement.textContent = rule;
-        (document.head || document.getElementsByTagName('head')[0] || document.body)
-          .appendChild(styleSheetElement)
-      }
-      this.setAttribute('data-dom-hidden', 'true');
+      this.style.display = 'none';
       return this;
     },
 
@@ -174,7 +162,7 @@
      * Shows the element. The 
     **/
     show: function() {
-      this.removeAttribute('data-dom-hidden');
+      this.style.display = '';
       return this;
     },
 
