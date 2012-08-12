@@ -25,6 +25,8 @@ describe('Element Pants', function() {
 
   describe('when used as a Module', function() {
     it('should set styles in various argument formats', function() {
+      if (typeof DOM == 'undefined') return;
+
       DOM.setStyle(element, 'float', 'left');
       assert.equal('left', element.style.float || element.style.cssFloat);
 
@@ -36,6 +38,8 @@ describe('Element Pants', function() {
     });
 
     it('should get element styles', function() {
+      if (typeof DOM == 'undefined') return;
+
       DOM.setStyle(element, 'float', 'left');
       assert.equal('left', DOM.getStyle(element, 'float'));
 
@@ -47,6 +51,8 @@ describe('Element Pants', function() {
     });
 
     it('should show and hide an element', function() {
+      if (typeof DOM == 'undefined') return;
+
       assert.ok(element.offsetWidth > 0);
       DOM.hide(element);
       assert.equal(0, element.offsetWidth);
@@ -55,6 +61,8 @@ describe('Element Pants', function() {
     });
 
     it('should manipulate an element\'s class list', function() {
+      if (typeof DOM == 'undefined') return;
+
       assert.equal('', element.className, 'Did not start with an empty className');
 
       DOM.addClass(element, 'rad');
@@ -82,6 +90,11 @@ describe('Element Pants', function() {
     });
 
     it('should bind DOM events', function(done) {
+      if (typeof DOM == 'undefined') {
+        done();
+        return;
+      }
+
       checkOnBinding();
 
       function checkOnBinding() {
@@ -139,6 +152,8 @@ describe('Element Pants', function() {
     });
     
     it('should find an element', function() {
+      if (typeof DOM == 'undefined') return;
+
       var x = DOM.find(document, '#rad');
       assert.ok(element === x);
 
@@ -148,6 +163,8 @@ describe('Element Pants', function() {
     });
 
     it('should create an element', function() {
+      if (typeof DOM == 'undefined') return;
+
       var n1 = DOM.create('a');
       assert.equal('A', n1.tagName);
       assert.equal('<a></a>', n1.outerHTML);
