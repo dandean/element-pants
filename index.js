@@ -198,7 +198,7 @@
    * to the element.
    *
    * NOTE: To prevent memory leaks, always call `Element#off` before removing
-   * and element from the dom.
+   * the element from the dom.
   **/
   function on(eventName, selector, handler) {
     var scope = this,
@@ -229,14 +229,19 @@
       };
 
     } else {
-
+      if (isUndefined(handler) && typeof selector == 'function') {
+        handler = selector;
+        selector = undefined;
+      }
       wrappedHandler = function(event) {
-        (selector.handleEvent || selector).call(scope, event);
+        (handler.handleEvent || handler).call(scope, event);
       };
     }
 
-    this.__registry__.push([eventName, selector, handler, wrappedHandler]);
-    this.addEventListener(eventName, wrappedHandler, false);
+    if (wrappedHandler) {
+      this.__registry__.push([eventName, selector, handler, wrappedHandler]);
+      this.addEventListener(eventName, wrappedHandler, false);
+    }
     return this;
   }
 
