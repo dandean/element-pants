@@ -11,7 +11,7 @@ If you call the `install` function, Element Pants will install itself on Element
 API
 --------------------------------------------------------------------------------
 
-`hasClass`, `addClass`, `removeClass`, `toggleClass`, `getStyle`, `setStyle`, `hide`, `show`, `find`, `findAll`, `on`, `off`, `create`, `install`
+`hasClass`, `addClass`, `removeClass`, `toggleClass`, `getStyle`, `setStyle`, `hide`, `show`, `remove`, `find`, `findAll`, `on`, `off`, `create`, `install`
 
 
 Documentation

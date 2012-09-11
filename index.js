@@ -157,10 +157,20 @@
   /**
    * Element#show() -> Element
    *
-   * Shows the element. The 
+   * Shows the element.
   **/
   function show() {
     this.style.display = '';
+    return this;
+  }
+
+  /**
+   * Element#remove() -> Element
+   *
+   * Removes the element from the DOM. 
+  **/
+  function remove() {
+    if (this.parentNode) this.parentNode.removeChild(this);
     return this;
   }
 
@@ -325,6 +335,7 @@
     setStyle: setStyle,
     hide: hide,
     show: show,
+    remove: remove,
     find: find,
     findAll: findAll,
     on: on,
