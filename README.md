@@ -29,7 +29,7 @@ Yes.
 Installation
 --------------------------------------------------------------------------------
 
-Element Pants if available via NPM and Bower, and works great as a CommonJS module, RequireJS module or even a regular old `<script>` include.
+Element Pants is available via NPM and Bower, and works great as a CommonJS module, RequireJS module or even a regular old `<script>` include.
 
 
 Licence
