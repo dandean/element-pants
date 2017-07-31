@@ -19,7 +19,7 @@
     "test": "make test"
   },
   "devDependencies": {
-    "mocha": "*"
+    "mocha": ">=3.5.0"
   },
   "licenses" : [{
     "type" : "MIT",
